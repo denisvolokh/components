@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Label xmlns:mx="http://www.adobe.com/2006/mxml"
+		  mouseOver="label1_rollOverHandler(event)"
+		  mouseOut="label1_rollOutHandler(event)"
+		  mouseChildren="false"
+		  useHandCursor="true"
+		  buttonMode="true"
+		  fontSize="11"
+		  click="label1_clickHandler(event)">
+
+	<mx:Script>
+		<![CDATA[
+			import flash.net.navigateToURL;
+			public var urlLink:String;
+
+			protected function label1_rollOverHandler(event:MouseEvent):void
+			{
+				this.setStyle("color", 0x939393);
+				//this.setStyle("textDecoration", "underline")
+			}
+
+			protected function label1_rollOutHandler(event:MouseEvent):void
+			{
+				this.setStyle("color", 0xFFFFFF);
+				this.setStyle("textDecoration", "normal")
+			}
+
+			protected function label1_clickHandler(event:MouseEvent):void
+			{
+				if (!urlLink) return;
+				navigateToURL(new URLRequest(urlLink), "_blank")
+			}
+		]]>
+	</mx:Script>
+
+
+</mx:Label>
